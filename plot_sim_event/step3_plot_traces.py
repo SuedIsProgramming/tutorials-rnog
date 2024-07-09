@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import NuRadioReco.modules.io.eventReader
 event_reader = NuRadioReco.modules.io.eventReader.eventReader()
 
-file = 'myout.nur'
+file = 'output.nur'
 event_reader.begin(file)
 for iE, event in enumerate(event_reader.run()):
     primary = event.get_primary()

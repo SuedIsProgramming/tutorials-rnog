@@ -18,14 +18,19 @@ for iE, event in enumerate(event_reader.run()):
             volts = ch.get_trace()
             times = ch.get_times()
             axs[ch.get_id()].plot(times, volts)
+            axs[ch.get_id()].set_title(f"Channel {ch.get_id()}")
         
         # this loops through *MC truth* waveforms (before noise was added)
-        if station.has_sim_station():
-            sim_station = station.get_sim_station()
-            for sim_ch in sim_station.iter_channels():
-                print(sim_ch.get_id())
-                volts = sim_ch.get_trace()
-                times = sim_ch.get_times()
-                axs[sim_ch.get_id()].plot(times, volts, '--')
+        # this may prove useful at some point
+        # if station.has_sim_station():
+        #     sim_station = station.get_sim_station()
+        #     for sim_ch in sim_station.iter_channels():
+        #         volts = sim_ch.get_trace()
+        #         times = sim_ch.get_times()
+        #         axs[sim_ch.get_id()].plot(times, volts, '--')
+
+        for ax in axs:
+            ax.set_xlabel("Time [ns]")
+            ax.set_ylabel("Voltage [V]")
 
         fig.savefig(f"traces_{iE}.png") # save the traces

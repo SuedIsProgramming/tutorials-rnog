@@ -9,7 +9,7 @@ but you can also follow Brian's guide [here](https://docs.google.com/document/d/
 
 ## Running the sims
 
-This has three steps:
+This has three steps.
 
 ### Step 1
 Generate the events to be simulated. Run this like 
@@ -41,3 +41,8 @@ python step3_plot_traces.py
 ```
 It should produce a series of png files showing waveforms.
 The next step is to turn these into images for the CNN to usse.
+
+## Fast Start
+
+If you'd like to jump to make plots, then you can skip to step 3,
+and use some "sample events" I've put here: `/i3store/users/rnog/sim_sample/`.

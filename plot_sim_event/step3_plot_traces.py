@@ -10,6 +10,7 @@ for iE, event in enumerate(event_reader.run()):
 
     for iStation, station in enumerate(event.get_stations()):
 
+        # a fig and axes for our waveforms
         fig, axs = plt.subplots(4, 1, figsize=(5,20))
 
         # this loops through "mock data" (with noise added, etc.)
@@ -27,5 +28,4 @@ for iE, event in enumerate(event_reader.run()):
                 times = sim_ch.get_times()
                 axs[sim_ch.get_id()].plot(times, volts, '--')
 
-        fig.savefig(f"traces_{iE}.png")
-
+        fig.savefig(f"traces_{iE}.png") # save the traces

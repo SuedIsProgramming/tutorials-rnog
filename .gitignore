@@ -160,8 +160,9 @@ cython_debug/
 #.idea/
 
 # Ignore all station.json files except the root station.json
-.nur
-.hdf5
+*.nur
+*.hdf5
 *station.json
 !station.json
 /testing
+*.png

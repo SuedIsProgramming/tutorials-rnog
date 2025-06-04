@@ -42,24 +42,24 @@ class mySimulation(simulation.simulation):
                                     trigger_name='LPDA_2of4_4.1sigma',
                                     set_not_triggered=(not station.has_triggered("simple_threshold")))  # calculate more time consuming ARIANNA trigger only if station passes simple trigger
 
-parser = argparse.ArgumentParser(description='Run NuRadioMC simulation')
-parser.add_argument('inputfilename', type=str,
-                    help='path to NuRadioMC input event list')
-parser.add_argument('detectordescription', type=str,
-                    help='path to file containing the detector description')
-parser.add_argument('config', type=str,
-                    help='NuRadioMC yaml config file')
-parser.add_argument('outputfilename', type=str,
-                    help='hdf5 output filename')
-parser.add_argument('outputfilenameNuRadioReco', type=str, nargs='?', default=None,
-                    help='outputfilename of NuRadioReco detector sim file')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser(description='Run NuRadioMC simulation')
+# parser.add_argument('inputfilename', type=str,
+#                     help='path to NuRadioMC input event list')
+# parser.add_argument('detectordescription', type=str,
+#                     help='path to file containing the detector description')
+# parser.add_argument('config', type=str,
+#                     help='NuRadioMC yaml config file')
+# parser.add_argument('outputfilename', type=str,
+#                     help='hdf5 output filename')
+# parser.add_argument('outputfilenameNuRadioReco', type=str, nargs='?', default=None,
+#                     help='outputfilename of NuRadioReco detector sim file')
+# args = parser.parse_args()
 
 if __name__ == "__main__":
-    sim = mySimulation(inputfilename=args.inputfilename,
-                                outputfilename=args.outputfilename,
-                                detectorfile=args.detectordescription,
-                                outputfilenameNuRadioReco=args.outputfilenameNuRadioReco,
-                                config_file=args.config,
+    sim = mySimulation(inputfilename="1e19_n1e3.hdf5",
+                                outputfilename="output.hdf5",
+                                detectorfile="station.json",
+                                outputfilenameNuRadioReco="output.nur",
+                                config_file="config.yaml",
                                 file_overwrite=True)
     sim.run()
